@@ -19,7 +19,7 @@
 
         function initClient() {
             gapi.client.init({
-                apiKey: 'YOUR_API_KEY',
+                apiKey: '208568179464-uth7q43c7tjlph32b58do22mk9h9dt2a.apps.googleusercontent.com',
                 discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
             }).then(function () {
                 // Call your function to load data
@@ -29,8 +29,8 @@
 
         function loadData() {
             gapi.client.sheets.spreadsheets.values.get({
-                spreadsheetId: 'YOUR_SPREADSHEET_ID',
-                range: 'Sheet1!A1:D10'  // Update with your sheet name and range
+                spreadsheetId: '1YjQMQRyJhrDDD3yf3ySHE5vuTCt9KnpSL8fI0lHLh68',
+                range: 'Sheet1!A1:T6000'  // Update with your sheet name and range
             }).then(function(response) {
                 var values = response.result.values;
                 if (values.length > 0) {
