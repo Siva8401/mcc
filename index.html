@@ -10,57 +10,41 @@
 </head>
 
 <body>
- <section>
+  <div class="container text-center">
+    <br>
+    <h1>HTML form submit to Google Sheet</h1>
+    <br>
+    <div class="card mx-auto" style="width: 18rem;">
+      <div class="card-body">
+        <form name="submit-to-google-sheet">
+          <div class="mb-3">
+            <input name="date" type="date" class="form-control" required>
+          </div>
 
-       <div class="form-boxes">
-<div class="form-value">
-                <form action="">
-                    <h2>SOS ALERTS</h2>
-<div class="form-value">
-	<div class="r_form">
-			<form>
-				
+          <div class="mb-3">
+            <input name="OEM Name" type="text" class="form-control" placeholder="OEM Name" required>
+          </div>
 
-<div class="inputbox">
-  <ion-icon name="calendar-sharp"></ion-icon>
-  <input name="date" type="date" required>
-  
-</div>
+          <div class="mb-3">
+            <input name="Vehicle Number" type="text" class="form-control" placeholder="vehicle number" required>
+          </div>
 
-<div class="inputbox">
-					
-	
-                        <ion-icon name="person-sharp"></ion-icon>
-                        <input name="OEM Name" type="text" required>
-                        <label for="">OEM Name</label>
-                    </div>
-				
-	
-				<div class="inputbox">
-                      <ion-icon name="bus-outline"></ion-icon>
-                        <input nmae="Vehicle Number" type="text" required>
-                        <label for="">Vehicle Number</label>
-                          </div>
-				
-				<div class="inputbox">
-  <ion-icon name="call-sharp"></ion-icon>
-  <input name="Total alerts received" type="number" required>
-  <label for="">Total alerts received</label>
-</div>
+          <div class="mb-3">
+            <input name="Total alerts received" type="number" class="form-control" placeholder="Total alerts received" required>
+          </div>
 
-		
-			
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
 
-   </div>  </div>
-				
-				
-				<button>submit</button>
-			</form>
-		</div>
+  </div>
 
-	</div>
-</div>
-  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
 
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxT0quY7-3sX_4y-fBhR1upUeAl6vLJ9f_I9w9tuvCrIZ9eduLmiQFUvFZ3zzb2PGgw/exec'
