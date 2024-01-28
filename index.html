@@ -6,84 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HTML form submit to Google Sheet</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Additional CSS Styles -->
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-
-    .container {
-      margin-top: 50px;
-    }
-
-    h1 {
-      color: #007bff;
-    }
-
-    .card {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-control {
-      border-radius: 5px;
-    }
-
-    button.btn-primary {
-      background-color: #28a745;
-      border-color: #28a745;
-    }
-
-    button.btn-primary:hover {
-      background-color: #218838;
-      border-color: #218838;
-    }
-
-    button.btn-secondary {
-      background-color: #007bff;
-      border-color: #007bff;
-    }
-
-    button.btn-secondary:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
-    }
-  </style>
-  <!-- End Additional CSS Styles -->
-
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <div class="container text-center">
-    <br>
-    <h1>HTML form submit to Google Sheet</h1>
-    <br>
-    <div class="card mx-auto" style="width: 18rem;">
-      <div class="card-body">
-        <form name="submit-to-google-sheet">
-          <div class="mb-3">
-            <input name="fullname" type="text" class="form-control" placeholder="Fullname" required>
-          </div>
+ <section>
 
-          <div class="mb-3">
-            <input name="email" type="email" class="form-control" placeholder="Email" required>
-          </div>
+       <div class="form-boxes">
+<div class="form-value">
+                <form action="">
+                    <h2>Ecart-247 Sign up</h2>
+<div class="form-value">
+	<div class="r_form">
+			<form>
+				<div class="inputbox">
+					
+	
+                        <ion-icon name="person-sharp"></ion-icon>
+                        <input type="text" required>
+                        <label for="">Your Name</label>
+                    </div>
+				
+	
+				<div class="inputbox">
+                       <ion-icon name="mail-sharp"></ion-icon>
+                        <input type="email" required>
+                        <label for="">Email</label>
+                          </div>
+				<div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" required>
+                        <label for="">Password</label>
+                    </div>
+			<div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" required>
+                        <label for="">Confirm Password</label>
+                    </div>
+				
+		
+				<div class="inputbox">
+                        <ion-icon name="call-sharp"></ion-icon>
+                        <input type="number" required>
+                        <label for="">Phone Number</label>
+                    </div>
+   </div>  </div>
+				
+				
+				<button> <a href="firstlogin.html"> Register Now</button>
+			</form>
+		</div>
 
-          <div class="mb-3">
-            <input name="phone" type="number" class="form-control" placeholder="Phone" required>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Send</button>
-
-          <!-- Additional Button to View Spreadsheet as Table -->
-          <button type="button" class="btn btn-secondary" onclick="viewTable()">View Table</button>
-          <!-- End Additional Button -->
-
-        </form>
-      </div>
-    </div>
-
-  </div>
+	</div>
+</div>
+  </section>
 
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxT0quY7-3sX_4y-fBhR1upUeAl6vLJ9f_I9w9tuvCrIZ9eduLmiQFUvFZ3zzb2PGgw/exec'
@@ -95,12 +71,6 @@
         .then(response => console.log('Success!', response))
         .catch(error => console.error('Error!', error.message))
     })
-
-    // Function to handle the "View Table" button click
-    function viewTable() {
-      // You can add logic here to open a new window or perform other actions to view the spreadsheet as a table
-      alert('Implement your logic to view the spreadsheet as a table here.');
-    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
