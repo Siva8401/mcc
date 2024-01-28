@@ -6,37 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HTML form submit to Google Sheet</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-  body {
-    background-color: #f8f9fa;
-  }
 
-  .container {
-    margin-top: 50px;
-  }
+  <!-- Additional CSS Styles -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
 
-  h1 {
-    color: #007bff;
-  }
+    .container {
+      margin-top: 50px;
+    }
 
-  .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    h1 {
+      color: #007bff;
+    }
 
-  .form-control {
-    border-radius: 5px;
-  }
+    .card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  button.btn-primary {
-    background-color: #28a745;
-    border-color: #28a745;
-  }
+    .form-control {
+      border-radius: 5px;
+    }
 
-  button.btn-primary:hover {
-    background-color: #218838;
-    border-color: #218838;
-  }
-</style>
+    button.btn-primary {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+
+    button.btn-primary:hover {
+      background-color: #218838;
+      border-color: #218838;
+    }
+
+    button.btn-secondary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    button.btn-secondary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+  <!-- End Additional CSS Styles -->
 
 </head>
 
@@ -61,13 +74,18 @@
           </div>
 
           <button type="submit" class="btn btn-primary">Send</button>
+
+          <!-- Additional Button to View Spreadsheet as Table -->
           <button type="button" class="btn btn-secondary" onclick="viewTable()">View Table</button>
+          <!-- End Additional Button -->
+
         </form>
       </div>
     </div>
 
   </div>
-<script>
+
+  <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxT0quY7-3sX_4y-fBhR1upUeAl6vLJ9f_I9w9tuvCrIZ9eduLmiQFUvFZ3zzb2PGgw/exec'
     const form = document.forms['submit-to-google-sheet']
 
@@ -77,8 +95,13 @@
         .then(response => console.log('Success!', response))
         .catch(error => console.error('Error!', error.message))
     })
-  </script>
 
+    // Function to handle the "View Table" button click
+    function viewTable() {
+      // You can add logic here to open a new window or perform other actions to view the spreadsheet as a table
+      alert('Implement your logic to view the spreadsheet as a table here.');
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
