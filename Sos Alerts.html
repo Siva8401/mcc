@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reason Submission Form</title>
+  <title>SOS ALERTS FORM</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="your_other_css_file.css"> <!-- Replace with the path to your other CSS file -->
   <style>
     /* Add your custom styles here if needed */
   </style>
@@ -14,58 +15,48 @@
 <body>
   <div class="container text-center">
     <br>
-    <h1>Reason Submission Form</h1>
+    <h1>SOS ALERTS CALCULATION</h1>
     <br>
     <div class="card mx-auto" style="width: 18rem;">
       <div class="card-body">
-        <!-- Display existing data from spreadsheet -->
-        <div id="existing-data-container"></div>
-
-        <!-- Form to submit reason -->
-        <form name="submit-reason-form">
+        <form name="submit-to-google-sheet">
           <div class="mb-3">
-            <label for="reason">Reason:</label>
-            <textarea id="reason" name="reason" class="form-control" placeholder="Enter reason" required></textarea>
+            <input name="date" type="date" class="form-control" placeholder="Date" required>
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit Reason</button>
+          <div class="mb-3">
+            <input name="OEM Name" type="text" class="form-control" placeholder="OEM Name" required>
+          </div>
+
+          <div class="mb-3">
+            <input name="Vehicle Number" type="text" class="form-control" placeholder="Vehicle number" required>
+          </div>
+
+          <div class="mb-3">
+            <input name="Total alerts received" type="number" class="form-control" placeholder="Total Alerts Received" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send</button>
         </form>
       </div>
     </div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxT0quY7-3sX_4y-fBhR1upUeAl6vLJ9f_I9w9tuvCrIZ9eduLmiQFUvFZ3zzb2PGgw/exec';
-
-    const form = document.forms['submit-reason-form'];
-    const existingDataContainer = document.getElementById('existing-data-container');
-
-    // Fetch existing data when the page loads
-    fetch(scriptURL + '?action=getExistingData')
-      .then(response => response.json())
-      .then(data => {
-        // Process and display existing data
-        data.forEach(entry => {
-          const entryDiv = document.createElement('div');
-          entryDiv.innerHTML = `<strong>${entry[0]}</strong>: ${entry[1]}`;
-          existingDataContainer.appendChild(entryDiv);
-        });
-      })
-      .catch(error => console.error('Error fetching data:', error));
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxT0quY7-3sX_4y-fBhR1upUeAl6vLJ9f_I9w9tuvCrIZ9eduLmiQFUvFZ3zzb2PGgw/exec'
+    const form = document.forms['submit-to-google-sheet']
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-      const reasonInput = document.getElementById('reason');
-
-      // Submit reason
-      fetch(scriptURL + '?action=submitReason&reason=' + encodeURIComponent(reasonInput.value))
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
           console.log('Success!', response);
-          alert('Reason Submitted');
-          location.reload();
+          alert('Data is Saved'); // Show a popup
+          location.reload(); // Refresh the page
         })
-        .catch(error => console.error('Error!', error.message));
+        .catch(error => console.error('Error!', error.message))
     });
   </script>
 </body>
