@@ -48,7 +48,10 @@
         // Process and display existing data
         data.forEach(entry => {
           const entryDiv = document.createElement('div');
-          entryDiv.innerHTML = `<strong>${entry[0]}</strong>: ${entry[1]}`;
+          entryDiv.innerHTML = `<strong>${entry[0]}</strong>: ${entry[1]} | 
+                                <strong>${entry[2]}</strong>: ${entry[3]} | 
+                                <strong>${entry[4]}</strong>: ${entry[5]} | 
+                                <strong>${entry[6]}</strong>: ${entry[7]}`;
           existingDataContainer.appendChild(entryDiv);
         });
       })
