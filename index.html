@@ -4,31 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OEM Login</title>
+    <style>
+        body {
+            background-image: url('your-background-image-url.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        #loginForm {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #dataDisplay {
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<h2>OEM Login</h2>
+<div id="loginForm">
+    <h2>OEM Login</h2>
 
-<form id="loginForm">
-    <label for="username">OEM Name:</label>
-    <select id="username" name="username">
-        <!-- Add your OEM names as options in the dropdown -->
-        <option value="oem1">OEM 1</option>
-        <option value="oem2">OEM 2</option>
-        <!-- Add more options as needed -->
-    </select>
+    <form>
+        <label for="username">OEM Name:</label>
+        <select id="username" name="username">
+            <!-- Add your OEM names as options in the dropdown -->
+            <option value="oem1">OEM 1</option>
+            <option value="oem2">OEM 2</option>
+            <!-- Add more options as needed -->
+        </select>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-    <button type="button" onclick="login()">Login</button>
-</form>
+        <input type="checkbox" onclick="showPassword()"> Show Password
 
-<div id="dataDisplay" style="display: none;">
-    <!-- Display data here based on the selected OEM name -->
-    <h3>Data for OEM: <span id="selectedOEM"></span></h3>
-    <!-- Add table or other elements to display the data -->
-    <!-- You will need to dynamically update this content using JavaScript -->
+        <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <div id="dataDisplay" style="display: none;">
+        <!-- Display data here based on the selected OEM name -->
+        <h3>Data for OEM: <span id="selectedOEM"></span></h3>
+        <!-- Add table or other elements to display the data -->
+        <!-- You will need to dynamically update this content using JavaScript -->
+    </div>
 </div>
 
 <script>
@@ -55,6 +116,15 @@
             // Update the content of dataDisplay using JavaScript
         } else {
             alert('Incorrect password. Please try again.');
+        }
+    }
+
+    function showPassword() {
+        const passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
         }
     }
 </script>
