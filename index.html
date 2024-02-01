@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OEM Login</title>
+</head>
+<body>
+
+<h2>OEM Login</h2>
+
+<form id="loginForm">
+    <label for="username">OEM Name:</label>
+    <select id="username" name="username">
+        <!-- Add your OEM names as options in the dropdown -->
+        <option value="oem1">OEM 1</option>
+        <option value="oem2">OEM 2</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="login()">Login</button>
+</form>
+
+<div id="dataDisplay" style="display: none;">
+    <!-- Display data here based on the selected OEM name -->
+    <h3>Data for OEM: <span id="selectedOEM"></span></h3>
+    <!-- Add table or other elements to display the data -->
+    <!-- You will need to dynamically update this content using JavaScript -->
+</div>
+
+<script>
+    function login() {
+        // Validate the password for each OEM
+        const selectedOEM = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Define passwords for each OEM
+        const passwordMap = {
+            'oem1': 'password1',
+            'oem2': 'password2',
+            // Add more passwords as needed
+        };
+
+        // Check if the entered password is correct
+        if (password === passwordMap[selectedOEM]) {
+            document.getElementById('selectedOEM').innerText = selectedOEM;
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('dataDisplay').style.display = 'block';
+
+            // Fetch and display data based on the selected OEM name
+            // You will need to implement this part based on your backend logic
+            // Update the content of dataDisplay using JavaScript
+        } else {
+            alert('Incorrect password. Please try again.');
+        }
+    }
+</script>
+
+</body>
+</html>
